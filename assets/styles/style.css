@@ -82,11 +82,11 @@ img {
     display: block;
 }
 
-/* Container das personagens: largura máxima, centralizado e com padding lateral */
+
 .personagens_container {
-    max-width: 1100px; /* limita largura para não ficar "muito pros lados" */
-    margin: 1.5rem auto; /* centraliza horizontalmente */
-    padding: 0 1rem; /* evita que elementos encostem nas bordas da janela */
+    max-width: 1100px; 
+    margin: 1.5rem auto;
+    padding: 0 1rem; 
     gap: 1rem; 
     display: flex;
     align-items: flex-start;
@@ -206,7 +206,7 @@ body, html {
 .personagem {
     display: flex;
     align-items: center; 
-    gap: 1rem; /* reduz gap interno do card */
+    gap: 1rem; 
     margin: 1rem 0;
     flex-wrap: wrap;
 
@@ -224,7 +224,7 @@ body, html {
 
 @media (hover: hover) and (pointer: fine) {
     .personagem:hover {
-        transform: translateY(-8px) scale(1.07); /* sobe e aumenta 7% */
+        transform: translateY(-8px) scale(1.07); 
         box-shadow: 0 12px 30px rgba(0,0,0,0.25);
         z-index: 5;
     }
@@ -242,11 +242,11 @@ body, html {
     margin: 0.5rem 0 0 1rem;
 }
 
-/* Container para colocar as personagens lado a lado (gap reduzido) */
+
 .personagens_container {
-    /* gap original reduzido em 100px via calc; fallback para 16px se calc resultar inválido */
+    
     gap: calc(2rem - 100px);
-    gap: 1rem; /* menor espaçamento entre colunas */
+    gap: 1rem; 
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -398,9 +398,9 @@ img, .card1, .card2 {
     font-weight: 600;
 }
 
-/* Aplica o mesmo estilo do Nagi também ao Bachira */
+
 .detalhes.bachira .Habilidades {
-    background-color: rgba(207,162,26,0.06); /* fundo suave dourado (igual ao Nagi) */
+    background-color: rgba(207,162,26,0.06); 
     border-left: 4px solid #cf1a1a;
 }
 .detalhes.bachira .Habilidades li {
@@ -420,7 +420,6 @@ img, .card1, .card2 {
     transition: opacity 180ms ease, height 180ms ease;
 }
 
-/* Pequeno ajuste para foco por teclado */
 .detalhes h4:focus {
     outline: 2px solid rgba(0,102,255,0.6);
     outline-offset: 3px;
@@ -451,7 +450,6 @@ body.bodypage2 .container {
     padding: 1.2rem;
 }
 
-/* Ajustes responsivos: em telas pequenas reduz padding e largura */
 @media (max-width: 480px) {
     .container {
         width: 95%;
@@ -461,7 +459,6 @@ body.bodypage2 .container {
     }
 }
 
-/* Promove animações para GPU e indica ao navegador o que vai mudar */
 .personagem,
 .personagem img,
 .detalhes .Habilidades li {
@@ -470,41 +467,37 @@ body.bodypage2 .container {
     -webkit-backface-visibility: hidden;
 }
 
-/* imagem: usar transform 3D ao hover para acelerar */
+
 @media (hover: hover) and (pointer: fine) {
     .personagem:hover img {
-        transform: translate3d(0,0,0) scale(1.06); /* GPU-accelerated */
+        transform: translate3d(0,0,0) scale(1.06); 
     }
 }
 
-/* Itens individuais: transição menor e apenas transform/color */
 .detalhes .Habilidades li {
     padding: 0.35rem 0;
-    transition: transform 150ms ease, color 150ms ease; /* mais rápido e suave */
-    transform: translate3d(0,0,0); /* inicial no plano 3D */
+    transition: transform 150ms ease, color 150ms ease; 
+    transform: translate3d(0,0,0); 
     will-change: transform, color;
 }
 
-/* Use translate3d para mover itens (GPU) em vez de translateX puro */
+
 .detalhes.isagi .Habilidades li:hover,
 .detalhes.nagi .Habilidades li:hover {
     transform: translate3d(6px, 0, 0);
-    /* mantém mudança de cor rápida */
     transition: transform 150ms ease, color 150ms ease;
 }
 
-/* Opcional: reduzir um pouco a sombra do card para menos repaints */
 .personagem:hover {
-    box-shadow: 0 10px 18px rgba(0,0,0,0.18); /* menos pesado que antes */
+    box-shadow: 0 10px 18px rgba(0,0,0,0.18);
 }
 
-/* wrapper responsivo 16:9 para iframes */
 .video-wrapper {
     position: relative;
     width: 100%;
-    max-width: 1100px; /* padrão */
+    max-width: 1100px; 
     margin: 1rem auto;
-    padding-bottom: 56.25%; /* 16:9 ratio */
+    padding-bottom: 56.25%; 
     height: 0;
     overflow: hidden;
 }
@@ -517,28 +510,24 @@ body.bodypage2 .container {
     border: 0;
 }
 
-/* aumenta o tamanho para vídeos que precisam ser maiores */
 .video-wrapper.large {
-    max-width: 1400px; /* aumente esse valor conforme desejar */
+    max-width: 1400px; 
 }
 
-/* opcional: usar largura total da área disponível (sem limite) */
 .video-wrapper.full {
     max-width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
 }
 
-/* ajuste responsivo para telas muito largas vs pequenas */
 @media (max-width: 1200px) {
     .video-wrapper.large {
-        max-width: 100%; /* em telas menores, ocupa 100% */
+        max-width: 100%; 
     }
 }
 
-/* Estilos do rodapé */
 .site-footer {
-    background: #021a40; /* tom escuro combinando com azul */
+    background: #021a40; 
     color: #dfeeff;
     padding: 1.2rem 0;
     margin-top: 2rem;
@@ -572,7 +561,7 @@ body.bodypage2 .container {
     text-decoration: underline;
 }
 
-/* Responsividade do rodapé */
+
 @media (max-width: 600px) {
     .site-footer .footer-inner {
         flex-direction: column;
@@ -583,13 +572,13 @@ body.bodypage2 .container {
     }
 }
 
-/* Imagem arredondada usada em contatos */
+
 .rounded-image {
     display: block;
     max-width: 100%;
-    width: min(420px, 90%); /* limita tamanho e mantém responsivo */
-    margin: 0.8rem 0 0 0; /* remove centralização (antes: auto) */
-    border-radius: 12px; /* 12px = cantos arredondados; use 50% para círculo */
+    width: min(420px, 90%); 
+    margin: 0.8rem 0 0 0; 
+    border-radius: 12px; 
     box-shadow: 0 6px 18px rgba(0,0,0,0.18);
     object-fit: cover;
 }
