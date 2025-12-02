@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/style.css">
+
+    <title>Anime Blue Lock</title>
+
+</head>
+
+<body  class="personagens_body">
+    <header>
+        <!-- imagem do logo: use caminho relativo explícito -->
+        <img src="./assets/img/image.png" alt="Logo Blue Lock">
+        <nav>
+            <ul class="flex1">
+                <li>
+                    <a href="index.html" class="item_nav">Home</a>
+                </li>
+                <li>
+                    <a href="sobre.html" class="item_nav">Sobre</a>
+                </li>
+                <li>
+                    <a href="pagina2.html" class="item_nav">Login</a>
+                </li>
+                <li>
+                    <a href="personagens.html" class="item_nav"> Personagens</a>
+                </li>
+                <li>
+                    <a href="contatos.html" class="item_nav">Contatos</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <img src="./assets/img/Tituloprapag.png" alt="" class="titulo">
+
+    
+    <div class="personagens_container">
+        
+        <div class="personagem">
+            <img class="card1" src="./assets/img/Isagi-Yoichi.png" alt="Yoichi Isagi" loading="lazy">
+            <div class="detalhes isagi">
+                <h2 id="TP">Yoichi Isagi:</h2>
+                <h4>Habilidades:</h4>
+                <ul class="Habilidades">
+                    <li>Posicionamento</li>
+                    <li>Visão de Jogo</li>
+                    <li>Finalização</li>
+                    <li>Drible</li>
+                </ul>
+            </div>
+        </div>
+
+        
+        <div class="personagem">
+            <img class="card2" src="./assets/img/Nagi.jpg" alt="Seishu Nagi" loading="lazy">
+            <div class="detalhes nagi">
+                <h2 id="Nagi">Seishiro Nagi:</h2>
+                <h4>Habilidades:</h4>
+                <ul class="Habilidades">
+                    <li>Finalização potente</li>
+                    <li>Controle de bola</li>
+                    <li>Visão de jogo</li>
+                    <li>Força física</li>
+                </ul>
+            </div>
+        </div>
+        <div class="personagem">
+            <img src="./assets/img/Bachira.jpg" alt="Bachira Meguru" loading="lazy">
+            <div class="detalhes bachira">
+                <h2 id="Bachira">Bachira Meguru</h2>
+                <h4>Habilidades:</h4>
+                <ul class="Habilidades">
+                    <li>Drible imprevisível</li>
+                    <li>Criatividade ofensiva</li>
+                    <li>Visão espacial</li>
+                    <li>Finalização acrobática</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+    (function() {
+        
+        document.querySelectorAll('.detalhes').forEach(function(det) {
+            const h4 = det.querySelector('h4');
+            if (!h4) return;
+            h4.setAttribute('role', 'button');
+            h4.setAttribute('tabindex', '0');
+            h4.setAttribute('aria-expanded', 'true');
+
+            function toggle() {
+                det.classList.toggle('collapsed');
+                const expanded = det.classList.contains('collapsed') ? 'false' : 'true';
+                h4.setAttribute('aria-expanded', expanded);
+            }
+
+            h4.addEventListener('click', toggle);
+            h4.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle();
+                }
+            });
+        });
+
+        
+        document.querySelectorAll('img').forEach(img => {
+            
+            if (img.complete && img.naturalWidth === 0) {
+                setFallback(img);
+            }
+            img.addEventListener('error', function() { setFallback(img); });
+        });
+
+        function setFallback(img) {
+            console.warn('Imagem não carregou:', img.getAttribute('src'));
+            const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="400" height="250">' +
+                        '<rect width="100%" height="100%" fill="#e9e9e9"/>' +
+                        '<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#666" font-size="18">Imagem indisponível</text>' +
+                        '</svg>';
+            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+            if (!img.alt) img.alt = 'Imagem indisponível';
+        }
+    })();
+    </script>
+
+</body>
+</html>
