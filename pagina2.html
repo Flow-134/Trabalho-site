@@ -32,11 +32,10 @@
     </header>
     <div class="container">
         <img src="assets/img/image.png" alt="Logo Blue Lock">
-        <input type="text" placeholder="usuario">
-        <input type="text" placeholder="senha">
-    <a href="index.html"><button class="btn">Entrar</button></a>
+        <input id="username" type="text" placeholder="usuario">
+        <input id="password" type="password" placeholder="senha">
+        <button class="btn" id="loginButton">Entrar</button>
     </div>   
-
     <footer class="site-footer" role="contentinfo">
         <div class="footer-inner">
             <p>© 2025 Anime Blue Lock. Todos os direitos reservados.</p>
@@ -50,3 +49,17 @@
 </body>
 
 </html>
+
+<script>
+    document.getElementById('loginButton').addEventListener('click', function(event) {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        if (!username || !password) {
+            alert('Por favor, preencha o nome de usuário e a senha.');
+            event.preventDefault();
+        } else {
+            window.location.href = 'index.html';
+        }
+    });
+</script>
