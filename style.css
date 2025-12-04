@@ -47,6 +47,7 @@ img {
 }
 
 #informaçoes {
+    font-family: fantasy;
     list-style-type: none;
     color: cyan;
     margin-left: 20px;
